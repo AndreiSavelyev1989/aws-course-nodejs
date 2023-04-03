@@ -19,7 +19,7 @@ ___
 
 # Front-end
 
-- Frontend integrated with product service HTTP API & images from S3 Bucket: [Link to cloudfront website](https://d2wtmavfovzv32.cloudfront.net/)
+- Frontend integrated with product service HTTP API & images from S3 Bucket: [Link to cloudfront website](https://d2xxscw559wzra.cloudfront.net)
 
 # Swagger
 

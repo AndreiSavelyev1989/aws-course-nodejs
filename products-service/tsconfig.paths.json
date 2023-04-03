@@ -5,7 +5,7 @@
       "@functions/*": ["src/functions/*"],
       "@libs/*": ["src/libs/*"],
       "@mocks/*": ["src/mocks/*"],
-      "@services/*": ["src/services/*"],
+      "@provider/*": ["src/provider/*"],
       "@constants/*": ["src/constants/*"]
     }
   }

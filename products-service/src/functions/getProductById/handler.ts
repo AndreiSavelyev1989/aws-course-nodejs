@@ -3,16 +3,15 @@ import {
   APIGatewayProxyEvent,
 } from "aws-lambda/trigger/api-gateway-proxy";
 import { formatJSONResponse } from "@libs/api-gateway";
-import { productService } from "@services/product-service";
+import { productProvider } from "@provider/product-provider";
 import { ErrorMessage, Status } from "@constants/index";
 
 export const getProductById = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
   try {
-    console.log("event", event);
     const id = event.pathParameters?.id;
-    const product = await productService.getProductById(id);
+    const product = await productProvider.getProductById(id);
     if (!product) {
       return formatJSONResponse({
         statusCode: Status.Error404,

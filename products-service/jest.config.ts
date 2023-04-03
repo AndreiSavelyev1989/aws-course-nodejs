@@ -6,7 +6,7 @@ export default {
   moduleNameMapper: {
     "^@libs/(.*)$": "<rootDir>/src/libs/$1",
     "^@mocks/(.*)$": "<rootDir>/src/mocks/$1",
-    "^@services/(.*)$": "<rootDir>/src/services/$1",
+    "^@provider/(.*)$": "<rootDir>/src/provider/$1",
     "^@constants/(.*)$": "<rootDir>/src/constants/$1",
   },
 };
