@@ -49,3 +49,28 @@ export const getProductById = {
     },
   ],
 };
+
+export const createProduct = {
+  handler: `${handlerPath(__dirname)}/createProduct/handler.createProduct`,
+  events: [
+    {
+      http: {
+        method: "post",
+        path: "products",
+        cors: true,
+        responses: {
+          200: {
+            description: "Product created successfully",
+            bodyType: "Product",
+          },
+          400: {
+            description: "Something went wrong",
+          },
+          500: {
+            description: "Internal server error",
+          },
+        },
+      },
+    },
+  ],
+};

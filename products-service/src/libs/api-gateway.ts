@@ -1,6 +1,6 @@
 import { DataError, Product, Products } from "../types/api-types";
 
-type ResponseType = Product | Products | DataError<string | unknown>;
+type ResponseType = Product | Products | DataError;
 
 export const formatJSONResponse = ({
   statusCode,
