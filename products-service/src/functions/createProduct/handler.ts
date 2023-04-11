@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 import { formatJSONResponse } from "@libs/api-gateway";
 import { ErrorMessage, Status } from "@constants/index";
-import { CreateProductEvent } from "src/types/api-types";
+import { CreateProductEvent, CreateProductBody } from "src/types/api-types";
 import { dynamoDB } from "src/db/tools";
 
 export const createProduct = async (event: CreateProductEvent) => {
@@ -9,7 +9,7 @@ export const createProduct = async (event: CreateProductEvent) => {
     console.log(
       "Lambda createProducts called! Body: " + JSON.stringify(event.body)
     );
-    const product = JSON.parse(JSON.stringify(event.body));
+    const product: CreateProductBody = JSON.parse(event.body);
     const { description, price, title, count } = product;
     const id = v4();
     const productBody = { id, description, price, title };

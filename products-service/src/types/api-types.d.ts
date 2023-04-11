@@ -27,5 +27,5 @@ export type CreateProductBody = {
 };
 
 export interface CreateProductEvent extends APIGatewayEvent {
-  body: CreateProductBody;
+  body: string;
 }
