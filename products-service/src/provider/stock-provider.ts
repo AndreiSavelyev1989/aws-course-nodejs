@@ -1,6 +1,6 @@
 import { TABLE_NAMES } from "@constants/index";
-import { dynamoDB } from "src/db/tools";
-import { Stock } from "src/types/api-types";
+import { dynamoDB } from "../db/tools";
+import { Stock } from "../types/api-types";
 
 export const stockProvider = {
   getStocks: async () => {
