@@ -16,6 +16,7 @@ ___
 | --------------- | ----------------------------- | ------ |----------------------------------------------------------------------------------------------------------|
 | getProductsList | get ALL products              | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products                                      |
 | getProductsById | get ONE product in JSON by id | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
+| createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products |
 
 # Front-end
 

@@ -7,17 +7,24 @@
     "deploy": "sls deploy",
     "remove": "sls remove",
     "test": "jest --passWithNoTests",
-    "swagger:generate": "sls generate-swagger"
+    "swagger:generate": "sls generate-swagger",
+    "create-tables": "aws dynamodb create-table --cli-input-json file://src/db/templates/products.json --region us-east-1 && aws dynamodb create-table --cli-input-json file://src/db/templates/stocks.json --region us-east-1",
+    "fill-productsTable": "aws dynamodb batch-write-item --request-items file://src/mocks/products.json",
+    "fill-stocksTable": "aws dynamodb batch-write-item --request-items file://src/mocks/stocks.json"
   },
   "engines": {
     "node": ">=14.15.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "aws-sdk": "^2.1351.0",
+    "uuid": "^9.0.0"
+  },
   "devDependencies": {
     "@serverless/typescript": "^3.0.0",
     "@types/aws-lambda": "^8.10.71",
     "@types/jest": "^29.5.0",
     "@types/node": "^14.14.25",
+    "@types/uuid": "^9.0.1",
     "esbuild": "^0.14.11",
     "jest": "^29.5.0",
     "serverless": "^3.0.0",
