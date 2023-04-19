@@ -1,14 +1,19 @@
-import { formatJSONResponse } from "@libs/api-gateway";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { HTTP_CODE } from "@libs/httpCodes";
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { getSignedUrl } from "src/helpers/s3helper";
+import { formatJSONResponse } from "../../libs/api-gateway";
 
-export const importProductsFile = async (event: APIGatewayProxyEvent) => {
-  console.log("Lambda importProductFile called!");
-  const { name } = event.queryStringParameters;
-
+const importProductsFile = async (event: APIGatewayProxyEvent) => {
   try {
-    const url = await getSignedUrl(name);
+    const client = new S3Client({ region: "us-east-1" });
+    const { name: fileName } = event.queryStringParameters;
+    const params = {
+      Bucket: "aws-shop-course-import",
+      Key: `uploaded/${fileName}`,
+    };
+    const command = new PutObjectCommand(params);
+    const url = await getSignedUrl(client, command, { expiresIn: 3600 });
 
     return formatJSONResponse(HTTP_CODE.OK, { url });
   } catch (err) {
