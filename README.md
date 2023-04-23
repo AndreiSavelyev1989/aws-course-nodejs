@@ -10,13 +10,16 @@ This is backend starter project for nodejs-aws mentoring program. It uses the fo
 - [serverless-auto-swagger](https://github.com/completecoding/serverless-auto-swagger) as a swagger endpoints generator
 ___
 
-# Back-end 
+# Back-end (products-service)
 
 | Lambda          | Description                   | Method | URL                                                                                                      |
 | --------------- | ----------------------------- | ------ |----------------------------------------------------------------------------------------------------------|
 | getProductsList | get ALL products              | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products                                      |
 | getProductsById | get ONE product in JSON by id | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
 | createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products |
+
+# Back-end (import-service)
+endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/import
 
 # Front-end
 
