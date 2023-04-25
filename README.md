@@ -1,4 +1,5 @@
 # aws-course-nodejs
+task-6
 ___
 
 This is backend starter project for nodejs-aws mentoring program. It uses the following technologies:
