@@ -20,6 +20,8 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
+      SQS_URL:
+        "https://sqs.us-east-1.amazonaws.com/804751304608/CatalogItemsQueue",
     },
     iam: {
       role: {
@@ -33,6 +35,11 @@ const serverlessConfiguration: AWS = {
             Effect: "Allow",
             Action: "s3:*",
             Resource: "arn:aws:s3:::aws-shop-course-import/*",
+          },
+          {
+            Effect: "Allow",
+            Action: "sqs:*",
+            Resource: "arn:aws:sqs:us-east-1:804751304608:CatalogItemsQueue",
           },
         ],
       },

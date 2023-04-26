@@ -1,8 +1,7 @@
-import { v4 } from "uuid";
 import { formatJSONResponse } from "@libs/api-gateway";
 import { ErrorMessage, Status } from "@constants/index";
 import { CreateProductEvent, CreateProductBody } from "src/types/api-types";
-import { dynamoDB } from "src/db/tools";
+import { productProvider } from "@provider/product-provider";
 
 export const createProduct = async (event: CreateProductEvent) => {
   try {
@@ -11,9 +10,6 @@ export const createProduct = async (event: CreateProductEvent) => {
     );
     const product: CreateProductBody = JSON.parse(event.body);
     const { description, price, title, count } = product;
-    const id = v4();
-    const productBody = { id, description, price, title };
-    const stockBody = { product_id: id, count };
 
     if (!title || !description || !price || !count) {
       return formatJSONResponse({
@@ -23,31 +19,11 @@ export const createProduct = async (event: CreateProductEvent) => {
         },
       });
     }
-
-    const transactItems = [
-      {
-        Put: {
-          TableName: process.env.PRODUCTS_TABLE_NAME as string,
-          Item: productBody,
-        },
-      },
-      {
-        Put: {
-          TableName: process.env.STOCK_TABLE_NAME as string,
-          Item: stockBody,
-        },
-      },
-    ];
-
-    const transactParams = {
-      TransactItems: transactItems,
-    };
-
-    await dynamoDB.transactWrite(transactParams).promise();
+    const productId = await productProvider.createProduct(product);
 
     return formatJSONResponse({
       statusCode: Status.Success,
-      data: { id, ...product },
+      data: { id: productId, ...product },
     });
   } catch (error) {
     return formatJSONResponse({

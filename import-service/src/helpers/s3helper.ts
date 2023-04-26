@@ -1,9 +1,10 @@
-import S3 from "aws-sdk/clients/s3";
+import AWS from "aws-sdk";
 
 const BUCKET = "aws-shop-course-import";
 const EXPIRATION_TIME = 120;
+const REGION = "us-east-1";
 
-const s3 = new S3({ region: "us-east-1" });
+const s3 = new AWS.S3({ region: REGION });
 
 export const getSignedUrl = (name) => {
   const params = {

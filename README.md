@@ -1,5 +1,4 @@
 # aws-course-nodejs
-task-6
 ___
 
 This is backend starter project for nodejs-aws mentoring program. It uses the following technologies:
@@ -15,9 +14,9 @@ ___
 
 | Lambda          | Description                   | Method | URL                                                                                                      |
 | --------------- | ----------------------------- | ------ |----------------------------------------------------------------------------------------------------------|
-| getProductsList | get ALL products              | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products                                      |
-| getProductsById | get ONE product in JSON by id | GET    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
-| createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://2g5fbkdx6e.execute-api.us-east-1.amazonaws.com/dev/products |
+| getProductsList | get ALL products              | GET    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products                                      |
+| getProductsById | get ONE product in JSON by id | GET    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
+| createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products |
 
 # Back-end (import-service)
 endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/import
@@ -28,7 +27,7 @@ endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/impor
 
 # Swagger
 
-https://dri41upkrc.execute-api.us-east-1.amazonaws.com/swagger
+https://ol6f6ohate.execute-api.us-east-1.amazonaws.com/swagger
 
 # Available Scripts
 
