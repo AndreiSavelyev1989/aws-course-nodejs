@@ -83,13 +83,31 @@ const serverlessConfiguration: AWS = {
           TopicName: "CreateProductTopic",
         },
       },
-      CreateProductSubscription: {
+      EmailSubscription1: {
         Type: "AWS::SNS::Subscription",
         Properties: {
           Endpoint: "andreisaveluev@gmail.com",
           Protocol: "email",
           TopicArn: {
             Ref: "CreateProductTopic",
+          },
+          FilterPolicyScope: "MessageBody",
+          FilterPolicy: {
+            price: [{ numeric: ["<", 40] }],
+          },
+        },
+      },
+      EmailSubscription2: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Endpoint: "andreiscorpion19892010@gmail.com",
+          Protocol: "email",
+          TopicArn: {
+            Ref: "CreateProductTopic",
+          },
+          FilterPolicyScope: "MessageBody",
+          FilterPolicy: {
+            price: [{ numeric: [">=", 40] }],
           },
         },
       },

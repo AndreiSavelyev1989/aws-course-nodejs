@@ -1,6 +1,6 @@
 import { productProvider } from "../../provider/product-provider";
-import { publish } from "src/helpers/sns";
-import { CreateProductBody } from "src/types/api-types";
+import { publish } from "../../helpers/sns";
+import { CreateProductBody } from "../../types/api-types";
 import type { SQSEvent } from "aws-lambda";
 
 export const catalogBatchProcess = async (event: SQSEvent): Promise<void> => {

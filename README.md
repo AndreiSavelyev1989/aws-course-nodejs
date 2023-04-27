@@ -14,9 +14,9 @@ ___
 
 | Lambda          | Description                   | Method | URL                                                                                                      |
 | --------------- | ----------------------------- | ------ |----------------------------------------------------------------------------------------------------------|
-| getProductsList | get ALL products              | GET    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products                                      |
-| getProductsById | get ONE product in JSON by id | GET    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
-| createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://4axscjjdqk.execute-api.us-east-1.amazonaws.com/dev/products |
+| getProductsList | get ALL products              | GET    | https://7cpjwag9z8.execute-api.us-east-1.amazonaws.com/dev/products                                      |
+| getProductsById | get ONE product in JSON by id | GET    | https://7cpjwag9z8.execute-api.us-east-1.amazonaws.com/dev/products/{id} |
+| createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://7cpjwag9z8.execute-api.us-east-1.amazonaws.com/dev/products |
 
 # Back-end (import-service)
 endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/import
@@ -27,7 +27,7 @@ endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/impor
 
 # Swagger
 
-https://ol6f6ohate.execute-api.us-east-1.amazonaws.com/swagger
+https://6hecz00qhk.execute-api.us-east-1.amazonaws.com/swagger
 
 # Available Scripts
 

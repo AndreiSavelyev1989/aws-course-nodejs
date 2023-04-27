@@ -1,5 +1,5 @@
 import * as AWS from "aws-sdk";
-import { Product } from "src/types/api-types";
+import { Product } from "../types/api-types";
 
 const { SNS_ARN } = process.env;
 
