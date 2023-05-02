@@ -16,7 +16,8 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1351.0",
+    "aws-sdk": "^2.1366.0",
+    "aws-sdk-mock": "^5.8.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

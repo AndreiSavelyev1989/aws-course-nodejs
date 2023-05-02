@@ -18,8 +18,8 @@ export const dynamoDBResources = {
         },
       ],
       ProvisionedThroughput: {
-        ReadCapacityUnits: 5,
-        WriteCapacityUnits: 5,
+        ReadCapacityUnits: 1,
+        WriteCapacityUnits: 1,
       },
     },
   },
@@ -40,8 +40,8 @@ export const dynamoDBResources = {
         },
       ],
       ProvisionedThroughput: {
-        ReadCapacityUnits: 5,
-        WriteCapacityUnits: 5,
+        ReadCapacityUnits: 1,
+        WriteCapacityUnits: 1,
       },
     },
   },

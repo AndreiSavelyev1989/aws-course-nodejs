@@ -6,9 +6,13 @@ import {
 } from "@aws-sdk/client-s3";
 import { S3Event } from "aws-lambda";
 import { parse } from "csv-parse";
+import { SQSClient } from "@aws-sdk/client-sqs";
+import { SendMessageCommand } from "@aws-sdk/client-sqs";
 
 const importFileParser = async (event: S3Event) => {
-  const client = new S3Client({ region: "us-east-1" });
+  const REGION = "us-east-1";
+  const client = new S3Client({ region: REGION });
+  const sqs = new SQSClient({ region: REGION });
 
   const { Records } = event;
   const {
@@ -24,14 +28,23 @@ const importFileParser = async (event: S3Event) => {
   const response = await client.send(commandGet);
 
   const stream = await response.Body.transformToByteArray();
-  const records = [];
   const parser = parse();
 
-  parser.on("readable", () => {
+  parser.on("readable", async () => {
     let record;
     while ((record = parser.read()) !== null) {
-      console.log("row", record);
-      records.push(record);
+      if (
+        !record.includes("description") &&
+        !record.includes("title") &&
+        !record.includes("price") &&
+        !record.includes("count")
+      ) {
+        const params = {
+          MessageBody: JSON.stringify(record),
+          QueueUrl: process.env.SQS_URL,
+        };
+        await sqs.send(new SendMessageCommand(params));
+      }
     }
   });
 
@@ -40,7 +53,7 @@ const importFileParser = async (event: S3Event) => {
   });
 
   parser.on("end", () => {
-    console.log(`Parsed ${records.length} records`);
+    console.log(`Parsing finished successfully`);
   });
 
   parser.write(stream);
