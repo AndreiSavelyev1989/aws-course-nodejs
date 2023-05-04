@@ -19,7 +19,7 @@ ___
 | createProduct | create new product (request body example: {body: {description: string, title: string, price: number, count: number}}) | POST    | https://7cpjwag9z8.execute-api.us-east-1.amazonaws.com/dev/products |
 
 # Back-end (import-service)
-endpoint: GET - https://il1zyekruc.execute-api.us-east-1.amazonaws.com/dev/import
+endpoint: GET - https://mcicg31rk3.execute-api.us-east-1.amazonaws.com/dev/import
 
 # Front-end
 
