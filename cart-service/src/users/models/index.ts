@@ -5,3 +5,7 @@ export interface User {
   email?: string;
   password?: string;
 }
+
+export const userTableName = 'users';
+
+export const userTableValues = 'id, name, email, password';

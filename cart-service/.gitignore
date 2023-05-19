@@ -1,8 +1,9 @@
 # compiled output
 /dist
 /node_modules
+.env
 
-# Logss
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -36,3 +37,6 @@ lerna-debug.log*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Serverless directories
+.serverless

@@ -10,6 +10,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@helpers": ["src/shared/helpers"],
+      "@db": ["src/shared/db"]
+    }
   }
 }
