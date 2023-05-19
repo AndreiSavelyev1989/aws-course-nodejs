@@ -64,35 +64,3 @@ To generate Swagger documentation use
 ```
 npm run swagger:generate
 ```
-
-
-# Task 8
-endpoints:
-  ANY - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/
-  ANY - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/{proxy+}
-  POST - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/user
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/user/{id}
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/users
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order/{id}
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/orders
-  POST - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order
-  PATCH - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order/{id}
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/carts
-  GET - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}
-  DELETE - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}
-  PUT - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}
-  POST - https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/checkout/{userId}
-functions:
-  main: cart-service-dev-main (21 MB)
-  createUser: cart-service-dev-createUser (21 MB)
-  getUser: cart-service-dev-getUser (21 MB)
-  getUsers: cart-service-dev-getUsers (21 MB)
-  getOrder: cart-service-dev-getOrder (21 MB)
-  getOrders: cart-service-dev-getOrders (21 MB)
-  createOrder: cart-service-dev-createOrder (21 MB)
-  updateOrder: cart-service-dev-updateOrder (21 MB)
-  getCarts: cart-service-dev-getCarts (21 MB)
-  findUserCart: cart-service-dev-findUserCart (21 MB)
-  clearUserCart: cart-service-dev-clearUserCart (21 MB)
-  updateUserCart: cart-service-dev-updateUserCart (21 MB)
-  checkout: cart-service-dev-checkout (21 MB)
