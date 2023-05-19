@@ -35,28 +35,8 @@ endpoint: GET - https://mcicg31rk3.execute-api.us-east-1.amazonaws.com/dev/impor
 | getCarts        | get ALL carts                 | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/carts                                         |
 | getCart         | get cart or create (if doesn't exist) by userId | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
 | clearUserCart   | clear cart by userId         | DELETE | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
-| updateUserCart  | update user cart (body: {
-    "id": string cartId,
-    "items": [
-        {
-            "product": {
-                "id": string,
-                "description": string,
-                "price": integer,
-                "title": string
-            },
-            "count": integer
-        }
-    ]
-})             | PUT    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
-| checkout        | checkout the cart and create new order (body: {
-    "comments": string,
-    "paymentType": string,
-    "paymentAddress": string,
-    "paymentCreditCard": string,
-    "deliveryType": string,
-    "deliveryAddress": string
-})                 | POST   | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/checkout/{userId}                                         |
+| updateUserCart  | update user cart (body: {"id": string cartId, "items": [{"product": {"id": string, "description": string,           "price": integer, "title": string},"count": integer}]}) | PUT    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
+| checkout        | checkout the cart and create new order (body: {"comments": string, "paymentType": string, "paymentAddress": string,  "paymentCreditCard": string, "deliveryType": string, "deliveryAddress": string}) | POST   | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/checkout/{userId}                                         |
 
 # Front-end
 
