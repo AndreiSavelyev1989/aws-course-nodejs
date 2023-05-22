@@ -21,6 +21,23 @@ ___
 # Back-end (import-service)
 endpoint: GET - https://mcicg31rk3.execute-api.us-east-1.amazonaws.com/dev/import
 
+# Back-end (cart-service)
+
+| Lambda          | Description                   | Method | URL                                                                                                      |
+| --------------- | ----------------------------- | ------ |----------------------------------------------------------------------------------------------------------|
+| getUsers        | get ALL users                 | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/users                                         |
+| getUser         | get user by userId            | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/user/{id}                                     |
+| createUser      | create new user (body: {"name": string,"email": string,"password": string}) | POST   | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/user                                          |
+| getOrders       | get ALL orders                | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/orders                                        |
+| getOrder        | get order by orderId          | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order/{id}                                    |
+| updateOrder     | update order by orderId (body: { delivery?: {type: string, address: any }, comments?: string, status?: "paid" or "delivered" }) | PATCH  | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order/{id}                                    |
+| createOrder     | create new order (body: {"userId": string, "cartId": string, "payment": {"type": string}, "delivery": {"type": string, "address": string},   "comments": string, "status": string, "total": integer}) | POST   | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/order                                  |
+| getCarts        | get ALL carts                 | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/carts                                         |
+| getCart         | get cart or create (if doesn't exist) by userId | GET    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
+| clearUserCart   | clear cart by userId         | DELETE | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
+| updateUserCart  | update user cart (body: {"id": string cartId, "items": [{"product": {"id": string, "description": string,           "price": integer, "title": string},"count": integer}]}) | PUT    | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/{userId}                                         |
+| checkout        | checkout the cart and create new order (body: {"comments": string, "paymentType": string, "paymentAddress": string,  "paymentCreditCard": string, "deliveryType": string, "deliveryAddress": string}) | POST   | https://zhedms7x0b.execute-api.us-east-1.amazonaws.com/dev/cart/checkout/{userId}                                         |
+
 # Front-end
 
 - Frontend integrated with product service HTTP API & images from S3 Bucket: [Link to cloudfront website](https://d2xxscw559wzra.cloudfront.net)
